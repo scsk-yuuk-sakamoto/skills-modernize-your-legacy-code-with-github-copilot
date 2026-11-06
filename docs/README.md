@@ -31,6 +31,10 @@ Stores the account balance in working storage, initialized to `1000.00`. Its pro
 - Amounts and balances use `PIC 9(6)V99`, representing up to six integer digits and two decimal digits. The implied decimal point is not stored as a character.
 - The code does not validate malformed input, negative amounts, account ownership, or transaction history. In particular, because credit and debit amounts are not checked for positivity, the current behavior should not be treated as production-ready student-account policy.
 
+## Node.js Implementation
+
+The converted console application is in `src/accounting`. Run it with `npm start` from that directory, and run its automated tests with `npm test`. It preserves the four menu options, the `1000.00` per-run starting balance, and the original credit/debit rules. Monetary values are stored as integer cents to avoid floating-point rounding. Inputs must be non-negative amounts with at most two decimal places; credits that would exceed the COBOL balance capacity of `999999.99` are rejected without changing the balance.
+
 ## Application Data Flow
 
 ```mermaid
